@@ -1,0 +1,110 @@
+﻿@model Emlak_Sitesi_1.Models.ilan
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>İlan Ekle</h1>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <label class="control-label col-md-2">Başlık</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanBaslik, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanBaslik, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Fiyat</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanFiyat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanFiyat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Kategori</label>            <div class="col-md-10">
+                @Html.DropDownList("kategoriID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.kategoriID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Konutun Durumu</label>            <div class="col-md-10">
+                @Html.DropDownList("islemID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.islemID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Adres</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanAdres, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanAdres, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Açıklama</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanAciklama, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanAciklama, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Oda Sayısı</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanOdaSayisi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanOdaSayisi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Bina Yaşı</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanBinaYasi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanBinaYasi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Bina Kaç Katlı?</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanBinaKat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanBinaKat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Bina Kaçıncı Kat</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanBinaKacinciKat, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanBinaKacinciKat, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Bina Isıtma Türü</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanBinaisitma, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanBinaisitma, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Bina Eşyalı Mı?</label>            <div class="col-md-10">
+                @Html.EditorFor(model => model.ilanBinaEsyaliMi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ilanBinaEsyaliMi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="İlanı Yayınla" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}

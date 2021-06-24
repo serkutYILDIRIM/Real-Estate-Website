@@ -1,0 +1,137 @@
+﻿@model Emlak_Sitesi_1.Models.ilan
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>İlanı Sil</h1>
+
+<meta charset="utf-8" />
+<div>
+
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanBaslik)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanBaslik)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanFiyat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanFiyat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tarih)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tarih)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanAdres)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanAdres)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanAciklama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanAciklama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanOdaSayisi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanOdaSayisi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanBinaYasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanBinaYasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanBinaKat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanBinaKat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanBinaKacinciKat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanBinaKacinciKat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanBinaisitma)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanBinaisitma)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ilanBinaEsyaliMi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ilanBinaEsyaliMi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.islem.islemAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.islem.islemAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kategori.kategoriAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kategori.kategoriAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullanici.kullaniciAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullanici.kullaniciAdSoyad)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="İlanı Sil" class="btn btn-default" /> |
+        </div>
+    }
+</div>

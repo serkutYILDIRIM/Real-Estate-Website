@@ -1,0 +1,38 @@
+﻿@model Emlak_Sitesi_1.Models.kullanici
+
+@{
+    ViewBag.Title = "UserEdit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kullanıcı Yetkilendirme</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>kullanici</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.kullaniciID)
+
+        <h2>@Model.kullaniciAdSoyad.ToString()</h2>
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Yetki</label>            <div class="col-md-10">
+                @Html.DropDownList("yetkiID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.yetkiID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Kaydet" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+

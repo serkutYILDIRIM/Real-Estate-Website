@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>AnaSayfa</h2>
+<meta charset="utf-8" />
+
+@using (Html.BeginForm())
+{
+
+    Html.RenderAction("Index", "ilan");
+
+
+}
+

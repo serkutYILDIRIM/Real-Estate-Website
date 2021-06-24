@@ -1,0 +1,46 @@
+﻿@model IEnumerable<Emlak_Sitesi_1.Models.kullanici>
+
+
+<table class="table">
+    <tr>
+        <th>
+            <label> Kullanıcı Adı ve Soyadı</label>
+        </th>
+        <th>
+            <label> Kullanıcı Adı</label>
+        </th>
+
+        <th>
+            <label> Mail</label>
+        </th>
+        <th>
+            <label> Yetki</label>
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciAdSoyad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciAd)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.kullaniciMail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.yetki.yetkiAd)
+            </td>
+            <td>
+                @Html.ActionLink("Düzenle", "UserEdit", new { id = item.kullaniciID }) |
+                @Html.ActionLink("Detay", "Details", new { id = item.kullaniciID }) |
+                @Html.ActionLink("Sil", "Delete", new { id = item.kullaniciID })
+            </td>
+        </tr>
+    }
+
+</table>

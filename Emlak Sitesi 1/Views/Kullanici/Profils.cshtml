@@ -1,0 +1,56 @@
+﻿@model Emlak_Sitesi_1.Models.kullanici
+
+@{
+    ViewBag.Title = "Profils";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<meta charset="utf-8" />
+
+
+<p />
+
+<li style="text-decoration:none;"><button type="submit" style="text-decoration:none">@Html.ActionLink("İlan Ekle", "Create", "ilan")</button></li>
+<p />
+<li style="text-decoration:none;"><button type="submit" style="text-decoration:none">@Html.ActionLink("İlanlarım", "List", "ilan")</button></li>
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+            <div class="panel panel-info">
+                <div class="panel-body">
+                    <div class="row">
+                        <div class=" col-md-9 col-lg-9 ">
+                            <table class="table table-user-information">
+                                <tbody>
+                                    <tr>
+                                        <td>Kullanıcı ID:</td>
+                                        <td>@Model.kullaniciID</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Ad Soyad:</td>
+                                        <td>@Model.kullaniciAdSoyad</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Yetki:</td>
+                                        <td>@Model.yetki.yetkiAd</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Email</td>
+                                        <td>@Model.kullaniciMail</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            @Html.ActionLink("Güncelle", "Edit", new { id = Model.kullaniciID })
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

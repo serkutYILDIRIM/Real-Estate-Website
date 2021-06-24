@@ -1,0 +1,102 @@
+﻿
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>İlan Detay</h1>
+<meta charset="utf-8" />
+
+@foreach (var item in ViewBag.ilan1)
+{
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+
+
+                <div class="panel panel-info">
+
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-md-3 col-lg-3 " align="center"> <img alt="User Pic" src="~/İmages/" class="img-circle img-responsive"> </div>
+
+                            <div class=" col-md-9 col-lg-9 ">
+                                <table class="table table-user-information">
+                                    <tbody>
+                                        <tr>
+                                            <td>İlan Veren:</td>
+                                            <td>@item.kullanici.kullaniciAdSoyad</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Başlık:</td>
+                                            <td>@item.ilanBaslik</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Fiyat:</td>
+                                            <td>@item.ilanFiyat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Tarih:</td>
+                                            <td>@item.tarih</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Kategori:</td>
+                                            <td>@item.kategori.kategoriAd</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Durum:</td>
+                                            <td>@item.islem.islemAd</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Adres:</td>
+                                            <td>@item.ilanAdres</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Açıklama:</td>
+                                            <td>@item.ilanAciklama</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Oda Sayısı:</td>
+                                            <td>@item.ilanOdaSayisi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bina Yaşı:</td>
+                                            <td>@item.ilanBinaYasi</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bina Kaç Katlı:</td>
+                                            <td>@item.ilanBinaKat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Bina Kaçıncı Katta:</td>
+                                            <td>@item.ilanBinaKacinciKat</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Isıtma:</td>
+                                            <td>@item.ilanBinaisitma</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Eşyalı Mı:</td>
+                                            <td>@item.ilanBinaEsyaliMi</td>
+                                        </tr>
+
+                                        <tr>
+                                            <td> <h3> Yorumlar</h3></td>
+
+                                        </tr>
+
+                                        @{Html.RenderAction("List", "Yorum", new { id = item.ilanID });}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>@{Html.RenderAction("Create", "Yorum", new { id = item.ilanID, id2 = item.kullanici.kullaniciID }); }
+                </div>
+            </div>
+        </div>
+    </div>
+                        }

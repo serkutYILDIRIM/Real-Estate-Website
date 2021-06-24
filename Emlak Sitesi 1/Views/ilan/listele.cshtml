@@ -1,0 +1,168 @@
+﻿@model IOrderedQueryable<Emlak_Sitesi_1.Models.ilan>
+
+@{
+    ViewBag.Title = "listele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                <div class="panel panel-info">
+
+                    <div class="panel-body">
+                        <div>
+                            <div class="row">
+
+                                <div class=" col-md-9 col-lg-9 ">
+                                    <h1>İlan Ara</h1>
+                                    <div class="form-group">
+
+                                        <div class="col-md-10">
+                                            <hr />
+                                            @Html.Label("Kategori")
+
+                                            @Html.DropDownList("kategoriID", null, htmlAttributes: new { @class = "form-control" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-10">
+                                            <hr />
+                                            @Html.Label("Emlağın Durumu")
+
+                                            @Html.DropDownList("islemID", null, htmlAttributes: new { @class = "form-control" })
+
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-10 ">
+                                            <hr />
+                                            @Html.Label("Oda Sayısı:")
+
+                                            @Html.TextBox("ilanOdaSayisi")
+
+
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+
+                                        <div class="col-md-10">
+                                            <hr />
+                                            @Html.Label("Fiyat:")
+
+                                            @Html.TextBox("ilanFiyat")
+
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="İlan Ara" class="btn btn-primary" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+<hr />
+
+@{
+
+    <h1>İlan Listesi</h1>
+    foreach (var item in Model)
+    {
+
+
+        Html.RenderAction("List", "Resim", new { id = item.ilanID });
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xs-offset-0 col-sm-offset-0 col-md-offset-3 col-lg-offset-3 toppad">
+                    <div class="panel panel-info">
+
+                        <div class="panel-body">
+                            <div>
+                                <div class="row">
+
+                                    <div class=" col-md-9 col-lg-9 ">
+                                        <table class="table table-user-information">
+                                            <tbody>
+                                                <tr>
+                                                    <td>İlan Veren:</td>
+                                                    <td>@item.kullanici.kullaniciAdSoyad</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>İlan ID:</td>
+                                                    <td>@item.ilanID</td>
+                                                </tr>
+
+                                                <tr>
+                                                    <td>Fiyat:</td>
+                                                    <td>@item.ilanFiyat</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Tarih:</td>
+                                                    <td>@item.tarih</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Kategori:</td>
+                                                    <td>@item.kategori.kategoriAd</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Durum:</td>
+                                                    <td>@item.islem.islemAd</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Adres:</td>
+                                                    <td>@item.ilanAdres</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Açıklama:</td>
+                                                    <td>@item.ilanAciklama</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sil:</td>
+                                                    <td>@Html.ActionLink("Sil", "Delete", new { id = item.ilanID })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Düzenle:</td>
+                                                    <td>@Html.ActionLink("Düzenle", "Edit", new { id = item.ilanID })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Detay:</td>
+                                                    <td>@Html.ActionLink("Detay", "Details", new { id = item.ilanID })</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Resim Ekle:</td>
+                                                    <td>
+                                                        <a href="/Resim/Create/@item.ilanID">Ekle</a>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                <hr />
+    }
+}

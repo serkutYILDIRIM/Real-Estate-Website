@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Emlak_Sitesi_1.Models.yorum>
+
+@foreach (var item in Model)
+{
+
+    <tr>
+
+        <td>@item.kullanici.kullaniciAdSoyad : </td>
+
+        <td>@item.yorumİcerik</td>
+        <td>@Html.ActionLink("Sil", "Delete", new { id = item.yorumID })</td>
+
+    </tr>
+
+}

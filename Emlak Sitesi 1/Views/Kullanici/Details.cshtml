@@ -1,0 +1,65 @@
+﻿@model Emlak_Sitesi_1.Models.kullanici
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+<meta charset="utf-8" />
+<div>
+
+    <h4>kullanici</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAdSoyad)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAdSoyad)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciAd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciSifre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciSifre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.kullaniciMail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.kullaniciMail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.yetki.yetkiAd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.yetki.yetkiAd)
+        </dd>
+
+    </dl>
+
+
+
+</div>
+
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.kullaniciID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
